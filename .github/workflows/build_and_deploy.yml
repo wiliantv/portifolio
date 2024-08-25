@@ -26,7 +26,7 @@ jobs:
       - name: Build for Web
         run: |
           flutter pub get
-          flutter build web
+          flutter build web --base-href "./"
       - name: Upload Web artifacts
         uses: actions/upload-artifact@v2
         with:
