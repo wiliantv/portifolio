@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue, brightness: Brightness.dark),
-        textTheme: GoogleFonts.firaCodeTextTheme(
+        textTheme: GoogleFonts.encodeSansScTextTheme(
           Theme.of(context).textTheme.apply(
             bodyColor: Colors.white,
             displayColor: Colors.white,
