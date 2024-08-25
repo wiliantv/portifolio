@@ -68,7 +68,7 @@ class ProjectsScreen extends StatelessWidget {
                 Spacer(),
                 if (gitHubLink != null)
                   IconButton(
-                    icon: FaIcon(FontAwesomeIcons.git),
+                    icon: FaIcon(FontAwesomeIcons.github),
                     onPressed: () => _launchURL(gitHubLink),
                   ),
                 if (projectLink != null)
