@@ -80,18 +80,23 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Portfólio'),
         actions: [
           if(!isMobile)
-            TextButton(onPressed: () {
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TextButton(onPressed: () {
 
-            }, child: Text('Sobre')),
-          TextButton(onPressed: () {
+                }, child: Text('Sobre')),
+                TextButton(onPressed: () {
 
-          }, child: Text('Formação')),
-          TextButton(onPressed: () {
+                }, child: Text('Formação')),
+                TextButton(onPressed: () {
 
-          }, child: Text('Projetos')),
-          TextButton(onPressed: () {
+                }, child: Text('Projetos')),
+                TextButton(onPressed: () {
 
-          }, child: Text('Contato')),
+                }, child: Text('Contato')),
+                ]
+            ),
           EasyDynamicThemeBtn(),
         ],
       ),
