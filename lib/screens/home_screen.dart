@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   TypingTextController _typingTextController = TypingTextController();
   TypingTextController _typingTextControllerS = TypingTextController();
-  TypingTextController _typingTextControllerS2 = TypingTextController();
+  TypingTextController _typingTextControllerS2 = TypingTextController(typingSpeed: Duration(milliseconds: 40));
 
   @override
   void initState() {

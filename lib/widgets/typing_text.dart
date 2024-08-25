@@ -126,4 +126,10 @@ class TypingTextController {
   void onStopTyping(Function onStopTyping) {
     _onStopTyping = onStopTyping;
   }
+
+
+  void dispose() {
+    _typingTextState?.dispose();
+    _onStopTyping = null;
+  }
 }
