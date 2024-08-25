@@ -24,7 +24,7 @@ class ResponsiveMenu extends StatelessWidget {
                 Text(
                   'Menu',
                   style: TextStyle(
-                    color: Colors.white,
+                    // color: ,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
