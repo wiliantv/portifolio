@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/widgets/default_scaffold.dart';
+import 'package:portifolio/widgets/theme_mode_button.dart';
 
 class ResponsiveMenu extends StatelessWidget {
-  const ResponsiveMenu({super.key});
+  final List<ResponsiveButton> children;
+
+  const ResponsiveMenu({super.key, this.children = const []});
 
   @override
   Widget build(BuildContext context) {
@@ -11,53 +15,25 @@ class ResponsiveMenu extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              // color: Colors.blue,
             ),
-            child: Text(
-              'Menu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Menu',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                ThemeModeButton()
+                ]),
           ),
-          ListTile(
-            title: Text('Sobre Mim'),
-            onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => AboutPage()),
-              // );
-            },
-          ),
-          ListTile(
-            title: Text('Projetos'),
-            onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => ProjectsPage()),
-              // );
-            },
-          ),
-          ListTile(
-            title: Text('Formação'),
-            onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => EducationPage()),
-              // );
-            },
-          ),
-          ListTile(
-            title: Text('Contato'),
-            onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => ContactPage()),
-              // );
-            },
-          ),
+          ...children.map((e) => e.toListTile(context)),
+
         ],
       ),
     );
