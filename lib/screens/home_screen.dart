@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portifolio/widgets/default_scaffold.dart';
 import 'package:portifolio/widgets/typing_text.dart';
 
@@ -40,6 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+
+                  CircleAvatar(
+                    radius: 20,
+                    child: Icon(Icons.code), // Substitua pelo caminho correto da sua foto
+                  ),
+                  SizedBox(height: 20),
                   TypingText(
                     'Olá, Eu sou Wilian Dorneles Fragoso.',
                     controller: _typingTextController,
@@ -62,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(height: 20),
                   TypingText(
-                    "> Prazer, sou formado em Análise e Desenvolvimento de Sistemas pelo Instituto Federal Farroupilha, Campus São Vicente do Sul. \n Há 3 anos atuo no ramo de desenvolvimento de softwares e sistemas para computadores e dispositivos móveis,\n com experiência em configuração de servidores, instalação de serviços para hospedagens, Docker e algumas habilidades em DevOps e Cloud.",
+                    "> Há 3 anos atuo no ramo de desenvolvimento de softwares e sistemas para computadores e dispositivos móveis,\n com experiência em configuração de servidores, instalação de serviços para hospedagens, Docker e algumas habilidades em DevOps e Cloud.",
                     controller: _typingTextControllerS2,
                     autoStart: false,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
@@ -76,10 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => Contato()),
-                          // );
+                          context.go('/about');
                         },
                         child: Text('Contato'),
                       ),
@@ -91,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Container(
             padding: EdgeInsets.all(16.0),
-            color: Theme.of(context).colorScheme.background,
+            // color: Theme.of(context).colorScheme.background,
             child: Center(
               child: Text(
                 '© 2024 Todos os direitos reservados.',

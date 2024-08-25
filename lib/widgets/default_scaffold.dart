@@ -1,3 +1,4 @@
+import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portifolio/main.dart';
@@ -12,7 +13,7 @@ class DefaultScaffold extends StatefulWidget {
   final Widget? body;
   final String title;
 
-  const DefaultScaffold({super.key, this.body,required this.title});
+  const DefaultScaffold({super.key, this.body, required this.title});
 
   @override
   State<DefaultScaffold> createState() => _DefaultScaffoldState();
@@ -50,30 +51,43 @@ class _DefaultScaffoldState extends State<DefaultScaffold> {
       ),
     ];
     return Scaffold(
-        appBar: AppBar(
-          title: Text('${widget.title} - Portfólio'),
-          actions: [
-            if (!isMobile)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ...children
-                      .map(
-                        (e) => e.toTextButton(context),
-                      )
-                      .toList(),
-                  ThemeModeButton()
-                ],
-              ),
-            // EasyDynamicThemeBtn(),
-          ],
+      appBar: AppBar(
+        title: Text('${widget.title} - Portfólio'),
+        actions: [
+          if (!isMobile)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ...children
+                    .map(
+                      (e) => e.toTextButton(context),
+                    )
+                    .toList(),
+                ThemeModeButton()
+              ],
+            ),
+          // EasyDynamicThemeBtn(),
+        ],
+      ),
+      drawer: !isMobile
+          ? null
+          : ResponsiveMenu(
+              children: children,
+            ),
+      body: Stack(children: [
+        Positioned.fill(
+          child: Image.asset(
+            'images/background.jpg', // Caminho da sua imagem
+            fit: BoxFit.cover, // Cobrir todo o espaço disponível
+          ),
         ),
-        drawer: !isMobile
-            ? null
-            : ResponsiveMenu(
-                children: children,
-              ),
-        body: widget.body);
+        Positioned.fill(
+          child: Container(color: Theme.of(context).scaffoldBackgroundColor.withOpacity(EasyDynamicTheme
+              .of(context)
+              .themeMode != ThemeMode.light ? 0.8 : 0.4),),
+        ),
+        widget.body ?? Container()]),
+    );
   }
 }
 
@@ -88,9 +102,11 @@ class ResponsiveButton {
   TextButton toTextButton(BuildContext context) {
     var isSelected = GoRouterState.of(context).path == route;
     return TextButton.icon(
-      onPressed: isSelected ? null : () {
-        context.go(route);
-      },
+      onPressed: isSelected
+          ? null
+          : () {
+              context.go(route);
+            },
       icon: icon,
       label: label,
       style: isSelected
@@ -111,9 +127,11 @@ class ResponsiveButton {
       leading: icon,
       title: label,
       selected: selected,
-      onTap: selected ? null : () {
-        context.go(route);
-      },
+      onTap: selected
+          ? null
+          : () {
+              context.go(route);
+            },
     );
   }
 }

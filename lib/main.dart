@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
       title: 'Portfólio',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent, brightness: Brightness.light),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.light),
         textTheme: GoogleFonts.firaCodeTextTheme(
           Theme.of(context).textTheme.apply(
             bodyColor: Colors.black87,
