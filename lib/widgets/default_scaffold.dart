@@ -10,8 +10,9 @@ import 'package:portifolio/widgets/theme_mode_button.dart';
 
 class DefaultScaffold extends StatefulWidget {
   final Widget? body;
+  final String title;
 
-  const DefaultScaffold({super.key, this.body});
+  const DefaultScaffold({super.key, this.body,required this.title});
 
   @override
   State<DefaultScaffold> createState() => _DefaultScaffoldState();
@@ -50,7 +51,7 @@ class _DefaultScaffoldState extends State<DefaultScaffold> {
     ];
     return Scaffold(
         appBar: AppBar(
-          title: Text('Portfólio'),
+          title: Text('${widget.title} - Portfólio'),
           actions: [
             if (!isMobile)
               Row(

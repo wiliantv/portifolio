@@ -5,6 +5,7 @@ class ProjectsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultScaffold(
+      title: "Projetos",
       body: Center(
         child: Text(
           'Conteúdo da página Projetos',

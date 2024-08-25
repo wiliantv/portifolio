@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultScaffold(
+      title: "Home",
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
