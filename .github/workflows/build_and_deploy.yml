@@ -28,7 +28,7 @@ jobs:
           flutter pub get
           flutter build web --base-href "/portifolio/"
       - name: Upload Web artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: web-artifacts
           path: build/web
